@@ -1,0 +1,708 @@
+/* ── RESET & BASE ─────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #ffffff;
+  --superficie: #f9fafb;
+  --tarjeta: #ffffff;
+  --borde: #e5e7eb;
+  --acento: #2563eb;
+  --acento2: #059669;
+  --texto: #111827;
+  --atenuado: #6b7280;
+  --radio: 8px;
+  --fuente: 'cambria', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--texto);
+  font-family: var(--fuente);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── BARRA DE NAVEGACIÓN ───────────────────────── */
+.barra-navegacion {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--borde);
+}
+
+.nav-logo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nav-enlaces {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-enlaces a {
+  font-size: 0.9rem;
+  color: var(--atenuado);
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.nav-enlaces a:hover,
+.nav-enlaces a.activo {
+  color: var(--acento);
+}
+
+/* ── INTERRUPTOR DE NAVEGACIÓN ────────────────────── */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-etiqueta {
+  display: none;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0.5rem;
+  margin-right: -0.5rem;
+}
+
+.nav-toggle-etiqueta span,
+.nav-toggle-etiqueta span::before,
+.nav-toggle-etiqueta span::after {
+  display: block;
+  background: var(--texto);
+  height: 2px;
+  width: 22px;
+  border-radius: 2px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-toggle-etiqueta span::before,
+.nav-toggle-etiqueta span::after {
+  content: '';
+  position: absolute;
+}
+
+.nav-toggle-etiqueta span::before {
+  top: -7px;
+  width: 100%;
+}
+
+.nav-toggle-etiqueta span::after {
+  bottom: -7px;
+  width: 100%;
+}
+
+/* ANIMACIÓN DEL INTERRUPTOR */
+.nav-toggle:checked~.nav-toggle-etiqueta span {
+  background: transparent;
+}
+
+.nav-toggle:checked~.nav-toggle-etiqueta span::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.nav-toggle:checked~.nav-toggle-etiqueta span::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+
+/* ── COLOR DE ACENTO ───────────────────────────── */
+.acento {
+  color: var(--acento);
+}
+
+/* ── HERO ─────────────────────────────────────── */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 2rem 4rem;
+  background: var(--superficie);
+  text-align: center;
+}
+
+.hero-contenido {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-etiqueta {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--atenuado);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.hero-contenido h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitulo {
+  color: var(--atenuado);
+  max-width: 600px;
+  margin-bottom: 4rem;
+  font-size: 1.1rem;
+}
+
+/* ── TARJETAS DE INICIO ───────────────────────── */
+.cuadricula-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.tarjeta {
+  display: block;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 2rem 1.5rem;
+  transition: all 0.2s ease;
+  text-align: center;
+  align-items: center;
+}
+
+.tarjeta:hover {
+  border-color: var(--acento);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.tarjeta-icono {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.tarjeta h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--texto);
+}
+
+.tarjeta p {
+  font-size: 0.9rem;
+  color: var(--atenuado);
+  line-height: 1.5;
+}
+
+/* ── SECCIONES COMPARTIDAS ─────────────────────── */
+.seccion {
+  padding: 6rem 2rem;
+}
+
+.seccion-interna {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.seccion-etiqueta {
+  display: inline-block;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--acento);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.seccion-interna h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.seccion-subtitulo {
+  color: var(--atenuado);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  max-width: 600px;
+}
+
+/* ── SECCIONES DE RELLENO ──────────────────────── */
+.seccion-placeholder {
+  background: var(--superficie);
+  border-top: 1px solid var(--borde);
+  border-bottom: 1px solid var(--borde);
+}
+
+.proximamente {
+  color: var(--atenuado);
+  margin-top: 0.5rem;
+}
+
+/* ── SECCIÓN DE HARDWARE ───────────────────────── */
+.seccion-hardware {
+  background: var(--bg);
+}
+
+.cuadricula-hw {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.tarjeta-hw {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 2rem;
+}
+
+.encabezado-hw {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.icono-hw {
+  font-size: 1.5rem;
+}
+
+.encabezado-hw h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.enfoque-hw {
+  font-size: 0.85rem;
+  color: var(--acento2);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pasos {
+  list-style: none;
+  counter-reset: paso;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pasos li {
+  counter-increment: paso;
+  position: relative;
+  padding-left: 2.2rem;
+  font-size: 0.95rem;
+  color: var(--atenuado);
+}
+
+.pasos li strong {
+  color: var(--texto);
+  font-weight: 600;
+}
+
+.pasos li::before {
+  content: counter(paso);
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  color: var(--texto);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── PIE DE PÁGINA ─────────────────────────────── */
+.pie-pagina {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-size: 0.9rem;
+  color: var(--atenuado);
+  border-top: 1px solid var(--borde);
+  background: var(--superficie);
+}
+
+/* ── SECCIÓN WIRELESS ──────────────────────────── */
+.seccion-wireless {
+  background: var(--bg);
+}
+
+.seccion-interna--wide {
+  max-width: 1100px;
+}
+
+/* Tabla */
+.tabla-wrapper {
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  overflow: hidden;
+}
+
+.tabla-comparativa {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.tabla-comparativa th {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--atenuado);
+  background: var(--superficie);
+  border-bottom: 1px solid var(--borde);
+}
+
+.tabla-comparativa td {
+  padding: 1rem;
+  vertical-align: top;
+  border-bottom: 1px solid var(--borde);
+  color: var(--atenuado);
+  line-height: 1.6;
+}
+
+.tabla-comparativa tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Columna Technology */
+.tech-nombre {
+  font-weight: 700;
+  color: var(--texto) !important;
+  white-space: nowrap;
+}
+
+/* Listas dentro de la tabla */
+.lista-tabla {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.lista-tabla li {
+  padding-left: 1rem;
+  position: relative;
+  font-size: 0.88rem;
+}
+
+.lista-tabla li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--atenuado);
+}
+
+/* ── SECCIÓN MANTENIMIENTO & FAQ ───────────────── */
+.seccion-mantenimiento {
+  background: var(--bg);
+}
+
+.faq-seccion {
+  margin-top: 1rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--borde);
+}
+
+.faq-encabezado {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.faq-encabezado h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.faq-encabezado p {
+  color: var(--atenuado);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.faq-lista {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.faq-item:hover {
+  border-color: var(--acento);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.faq-pregunta {
+  padding: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none; /* remove native arrow */
+}
+
+/* hide native arrow in safari/chrome */
+.faq-pregunta::-webkit-details-marker {
+  display: none;
+}
+.faq-pregunta::marker {
+  display: none;
+}
+
+.faq-icono {
+  font-size: 1.5rem;
+  color: var(--acento);
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+
+details[open].faq-item .faq-icono {
+  transform: rotate(45deg);
+}
+
+.faq-respuesta {
+  padding: 0 1.5rem 1.5rem;
+  color: var(--atenuado);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-top: -0.5rem;
+}
+
+/* ── RESPONSIVE ───────────────────────────────── */
+@media (max-width: 768px) {
+  .barra-navegacion {
+    padding: 0 1.5rem;
+    height: 72px;
+  }
+
+  .nav-toggle-etiqueta {
+    display: block;
+  }
+
+  .nav-enlaces {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem 3rem;
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 99;
+  }
+
+  .nav-enlaces::before {
+    content: "MENU";
+    position: absolute;
+    top: 100px;
+    left: 3rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--atenuado);
+    letter-spacing: 2px;
+  }
+
+  .nav-enlaces::after {
+    content: "© 2026 Colegio Vocacional Monseñor Sanabria";
+    position: absolute;
+    bottom: 3rem;
+    left: 3rem;
+    font-size: 0.7rem;
+    color: var(--atenuado);
+    opacity: 0;
+    transition: opacity 0.5s ease 0.6s;
+  }
+
+  .nav-toggle:checked~.nav-enlaces::after {
+    opacity: 1;
+  }
+
+  .nav-enlaces li {
+    width: 100%;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav-enlaces a {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    font-weight: 800;
+    color: var(--texto);
+    display: block;
+    width: 100%;
+    letter-spacing: -0.02em;
+    transition: color 0.3s;
+  }
+
+  .nav-enlaces a:hover {
+    color: var(--acento);
+  }
+
+  .nav-enlaces a.activo {
+    color: var(--acento);
+  }
+
+  /* Animación de entrada escalonada */
+  .nav-toggle:checked~.nav-enlaces {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-toggle:checked~.nav-enlaces li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .nav-toggle:checked~.nav-enlaces li:nth-child(1) {
+    transition-delay: 0.3s;
+  }
+
+  .nav-toggle:checked~.nav-enlaces li:nth-child(2) {
+    transition-delay: 0.35s;
+  }
+
+  .nav-toggle:checked~.nav-enlaces li:nth-child(3) {
+    transition-delay: 0.4s;
+  }
+
+  .nav-toggle:checked~.nav-enlaces li:nth-child(4) {
+    transition-delay: 0.45s;
+  }
+
+  .hero {
+    padding: 9rem 1.5rem 4rem;
+  }
+
+  .hero-contenido h1 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-subtitulo {
+    margin-bottom: 3rem;
+  }
+
+  .cuadricula-hw {
+    grid-template-columns: 1fr;
+  }
+
+  .tarjeta-hw {
+    padding: 1.5rem;
+  }
+
+  /* Tabla responsive: convierte filas en tarjetas */
+  .tabla-wrapper {
+    border: none;
+    border-radius: 0;
+  }
+
+  .tabla-comparativa thead {
+    display: none;
+  }
+
+  .tabla-comparativa tbody,
+  .tabla-comparativa tr,
+  .tabla-comparativa td {
+    display: block;
+    width: 100%;
+  }
+
+  .tabla-comparativa tbody tr {
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+
+  .tabla-comparativa td {
+    border-bottom: 1px solid var(--borde);
+    padding: 0.75rem 1rem;
+  }
+
+  .tabla-comparativa td:last-child {
+    border-bottom: none;
+  }
+
+  .tabla-comparativa td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--acento);
+    margin-bottom: 0.3rem;
+  }
+
+  .tech-nombre {
+    background: var(--superficie);
+    font-size: 1rem;
+    white-space: normal;
+  }
+}

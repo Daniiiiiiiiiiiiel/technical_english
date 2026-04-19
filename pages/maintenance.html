@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>System Maintenance - School Project</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="barra-navegacion">
+    <span class="nav-logo">School <span class="acento">Project</span></span>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-etiqueta">
+      <span></span>
+    </label>
+    <ul class="nav-enlaces">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="wireless.html">Wireless Technology</a></li>
+      <li><a href="hardware.html">Hardware</a></li>
+      <li><a href="maintenance.html" class="activo">Maintenance</a></li>
+    </ul>
+  </nav>
+
+  <!-- SECTION: MAINTENANCE -->
+  <section class="seccion seccion-mantenimiento" style="min-height: calc(100vh - 84px); padding-top: 8rem;">
+    <div class="seccion-interna">
+      <span class="seccion-etiqueta">Section 3</span>
+      <h2>System Maintenance Guide</h2>
+      <p class="seccion-subtitulo">
+        Keeping your computer in good condition is essential for performance, security, and longevity. Regular maintenance helps prevent issues and ensures smooth operation.
+      </p>
+
+      <!-- REGULAR MAINTENANCE (ARREGLO ESTILO TARJETAS O LISTA ATRACTIVA) -->
+      <div class="cuadricula-tarjetas" style="margin-bottom: 4rem;">
+        <div class="tarjeta">
+          <div class="tarjeta-icono"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M3 22v-6h6"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path></svg></div>
+          <h3>Update your system regularly</h3>
+          <p>Install operating system and software updates to fix bugs and improve security.</p>
+        </div>
+        <div class="tarjeta">
+          <div class="tarjeta-icono"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></div>
+          <h3>Run antivirus scans</h3>
+          <p>Protect your system from malware and viruses.</p>
+        </div>
+        <div class="tarjeta">
+          <div class="tarjeta-icono"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg></div>
+          <h3>Clean unnecessary files</h3>
+          <p>Delete temporary files and unused programs to free up disk space.</p>
+        </div>
+        <div class="tarjeta">
+          <div class="tarjeta-icono"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></div>
+          <h3>Check hardware connections</h3>
+          <p>Ensure components like cables, RAM, and storage devices are properly connected.</p>
+        </div>
+        <div class="tarjeta">
+          <div class="tarjeta-icono"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg></div>
+          <h3>Restart your system frequently</h3>
+          <p>This helps refresh processes and improve performance.</p>
+        </div>
+      </div>
+
+      <!-- FAQ SECTION (PREGUNTAS FRECUENTES STYLE) -->
+      <div class="faq-seccion">
+        <div class="faq-encabezado">
+          <h2>Quick Fix: Troubleshooting Area</h2>
+          <p>When your computer starts acting like a tired robot instead of a fast machine, try these quick solutions:</p>
+        </div>
+
+        <div class="faq-lista">
+          
+          <details class="faq-item">
+            <summary class="faq-pregunta">
+              <span>If the system is slow</span>
+              <span class="faq-icono">+</span>
+            </summary>
+            <div class="faq-respuesta">
+              <p>→ Free up disk space and close unnecessary programs.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-pregunta">
+              <span>If there is no internet connection</span>
+              <span class="faq-icono">+</span>
+            </summary>
+            <div class="faq-respuesta">
+              <p>→ Restart the router and check the wireless connection.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-pregunta">
+              <span>If the computer does not turn on</span>
+              <span class="faq-icono">+</span>
+            </summary>
+            <div class="faq-respuesta">
+              <p>→ Check the power cable and battery.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-pregunta">
+              <span>If programs freeze</span>
+              <span class="faq-icono">+</span>
+            </summary>
+            <div class="faq-respuesta">
+              <p>→ Restart the system or force close the application.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-pregunta">
+              <span>If the device overheats</span>
+              <span class="faq-icono">+</span>
+            </summary>
+            <div class="faq-respuesta">
+              <p>→ Clean air vents and ensure proper ventilation.</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="pie-pagina">
+    <p>Project &mdash; Daniel Romero González, Britany Monge Rayo and Josué Daniel Muñoz Valverde · Colegio Vocacional Monseñor Sanabria · 06/04/2026</p>
+  </footer>
+
+</body>
+
+</html>
